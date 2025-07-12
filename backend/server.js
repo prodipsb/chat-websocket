@@ -30,9 +30,13 @@ io.on('connection', (socket) => {
   });
 });
 
-mongoose.connect('mongodb://localhost:27017/chatdb', {
+// Connect to MongoDB (replace the connection string with yours)
+mongoose.connect('mongodb://localhost:27017/myapp', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.log(err));
+
 
 server.listen(5000, () => console.log('Server running on port 5000'));
